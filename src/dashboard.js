@@ -1,5 +1,6 @@
+import { useState } from "react";
 
-function PackageTimeline() {
+function PackageTimeline({data}) {
 
     return (
         <div className="p-1 mt-4">
@@ -20,7 +21,7 @@ function PackageTimeline() {
                         <div className="bg-green-500 col-start-4 col-end-12 p-3 rounded-xl my-1 mr-auto shadow-md w-full">
                             <h3 className="font-semibold text-lg mb-1">Date collected</h3>
                             <p className="leading-tight text-justify w-full">
-                                21 July 2021, 04:30 PM
+                                {data.Dateofcollection}
                             </p>
                         </div>
                     </div>
@@ -49,30 +50,30 @@ function PackageTimeline() {
     );
 }
 
-export default function Dashboard() {
+export default function Dashboard({data}) {
 
     return (
         <div className="flex flex-wrap gap-4">
             <div className="block p-4 bg-gray-200 ">
                 <h3 className="text-4xl font-semibold">Group Name</h3>
-                <p className="my-4"><span className="text-lg font-semibold">Potatoes Growers</span> </p>
+                <p className="my-4"><span className="text-lg font-semibold"> {data.GroupName}</span> </p>
             </div>
             <div className="block p-4 bg-gray-200 ">
                 <h3 className="text-4xl font-semibold">Product Name</h3>
-                <p className="my-4"><span className="text-lg font-semibold">Potatoes</span> </p>
+                <p className="my-4"><span className="text-lg font-semibold">{data.Account}</span> </p>
             </div>
             <div className=" block p-4 bg-gray-200">
                 <h3 className="text-4xl font-semibold">Country</h3>
-                <p className="my-4"><span className="text-lg font-semibold">Kenya</span> </p>
-                <p className="my-4"><span className="text-lg font-semibold">Nyeri</span> </p>
+                <p className="my-4"><span className="text-lg font-semibold">{data.Country}</span> </p>
+                <p className="my-4"><span className="text-lg font-semibold">{data.AdminLevel2}</span> </p>
             </div>
             <div className="block p-4 bg-gray-200">
                 <h3 className="text-4xl font-semibold">GPS</h3>
-                <p className="my-4">Latitude : <span className="text-lg font-semibold">8239</span> </p>
-                <p className="my-4">Longitude : <span className="text-lg font-semibold">-1</span> </p>
+                <p className="my-4">Latitude : <span className="text-lg font-semibold">{data.Latitude}</span> </p>
+                <p className="my-4">Longitude : <span className="text-lg font-semibold">{data.Longitude}</span> </p>
             </div>
             <div className="block">
-                <PackageTimeline />
+                <PackageTimeline data = {data} />
             </div>
         </div>
 

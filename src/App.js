@@ -7,6 +7,7 @@ import DashBoard from './dashboard';
 function App() {
   const [licenceid, setLicenseid] = useState('');
   const [guid, setGuid] = useState('');
+  const [responseData, setResponseData] = useState(null); // State to store the response data
 
   useEffect(() => {
     // Function to extract and decode the base64 string
@@ -30,40 +31,43 @@ function App() {
     decodeBase64String(); // Call the function when the component mounts
   }, []);
 
-  const handlePostRequest = () => {
-    const url = 'http://localhost:8083/jspost';
+  useEffect(() => {
+    if (licenceid && guid) {
+      // Only make the POST request when both licenceid and guid are available
+      const url = 'http://localhost:8083/jspost';
 
-    // Create the JSON object with the licenseid and guid
-    const data = {
-      licenceid: licenceid,
-      guid: guid,
-    };
+      // Create the JSON object with the licenseid and guid
+      const data = {
+        licenceid: licenceid,
+        guid: guid,
+      };
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response from the server if needed
-        console.log('Response from server:', data);
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify(data),
       })
-      .catch((error) => {
-        // Handle any errors that occur during the POST request
-        console.error('Error:', error);
-      });
-  };
+        .then((response) => response.json())
+        .then((sdata) => {
+          // Handle the response from the server and store it in the state
+          setResponseData(sdata);
+          console.log(sdata);
+        })
+        .catch((error) => {
+          // Handle any errors that occur during the POST request
+          console.error('Error:', error);
+        });
+    }
+  }, [licenceid, guid]); // Trigger the effect whenever licenceid or guid changes
 
   return (
     <>
       <Navbar />
       <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-8">
-        <DashBoard />
-        <button onClick={handlePostRequest}>Send POST Request</button>
+        <DashBoard data={responseData} /> {/* Pass the response data to Dashboard */}
       </div>
     </>
   );
