@@ -7,7 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const MapboxMap = () => {
   useEffect(() => {
     // Set Mapbox access token
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYXVzdGluZW5kYXV3YSIsImEiOiJjbGs2b2UzNnQwMTNkM3RwNnNoNHA5empwIn0.1XXNeVtKm_aozdj6FmtTQg';
+    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_KEY ;
 
     // Initialize Mapbox map
     const map = new mapboxgl.Map({
