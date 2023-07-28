@@ -3,7 +3,7 @@ import { useState } from "react";
 function PackageTimeline({data}) {
 
     return (
-        <div className="p-1 mt-4">
+        data && (<div className="p-1 mt-4">
             <h1 className="text-3xl text-center font-semibold mb-6">Crop status</h1>
             <div className="container">
                 <div className="flex flex-col md:grid grid-cols-12 text-gray-50">
@@ -47,13 +47,13 @@ function PackageTimeline({data}) {
                 </div>
             </div>
         </div>
-    );
+    ));
 }
 
 export default function Dashboard({data}) {
 
     return (
-        <div className="flex flex-wrap gap-4">
+        data && (<div className="flex flex-wrap gap-4">
             <div className="block p-4 bg-gray-200 ">
                 <h3 className="text-4xl font-semibold">Group Name</h3>
                 <p className="my-4"><span className="text-lg font-semibold"> {data.GroupName}</span> </p>
@@ -76,6 +76,7 @@ export default function Dashboard({data}) {
                 <PackageTimeline data = {data} />
             </div>
         </div>
+        )
 
     )
 };

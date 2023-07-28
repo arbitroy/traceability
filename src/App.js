@@ -23,6 +23,7 @@ function App() {
         const [licenceid, guid] = parts;
         setLicenseid(licenceid);
         setGuid(guid);
+        console.log(licenceid)
       } else {
         console.log('Invalid decoded string format.');
       }
