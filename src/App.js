@@ -1,8 +1,9 @@
+import './App.css';
+
 import React, { useEffect, useState } from 'react';
 
-import './App.css';
-import Navbar from './Navbar';
 import DashBoard from './dashboard';
+import Navbar from './Navbar';
 
 function App() {
   const [licenceid, setLicenseid] = useState('');
@@ -35,7 +36,7 @@ function App() {
   useEffect(() => {
     if (licenceid && guid) {
       // Only make the POST request when both licenceid and guid are available
-      const url = 'http://localhost:8083/jspost';
+      const url = 'http://h2537984.stratoserver.net:22222/jspost';
 
       // Create the JSON object with the licenseid and guid
       const data = {
