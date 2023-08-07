@@ -1,6 +1,14 @@
-import { useState } from "react";
-
 function PackageTimeline({data}) {
+   // Function to format the date in "dd/mm/yyyy" format
+  function formatDate(date) {
+    const currentDate = new Date(date);
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  const currentDate = new Date();
 
     return (
         data && (<div className="p-1 mt-4">
@@ -38,7 +46,7 @@ function PackageTimeline({data}) {
                         <div className="bg-green-500 col-start-4 col-end-12 p-3 rounded-xl mt-2 mr-auto shadow-md w-full">
                             <h3 className="font-semibold text-lg ">Today</h3>
                             <p className="leading-tight text-justify w-full">
-                                {Date()}
+                            {formatDate(currentDate)}
                             </p>
                         </div>
                     </div>
@@ -53,26 +61,22 @@ function PackageTimeline({data}) {
 export default function Dashboard({data}) {
 
     return (
-        data && (<div className="flex flex-wrap gap-4">
+        data && (<div className="flex flex-wrap gap-64">
             <div className="block p-4 bg-gray-200 ">
                 <h3 className="text-4xl font-semibold">Group Name</h3>
-                <p className="my-4"><span className="text-lg font-semibold"> {data.GroupName}</span> </p>
-            </div>
-            <div className="block p-4 bg-gray-200 ">
+                <p className="my-6"><span className="text-lg font-semibold"> {data.GroupName}</span> </p>
                 <h3 className="text-4xl font-semibold">Product Name</h3>
-                <p className="my-4"><span className="text-lg font-semibold">{data.Account}</span> </p>
-            </div>
+                <p className="my-6"><span className="text-lg font-semibold">{data.Account}</span> </p>
+            </div>  
             <div className=" block p-4 bg-gray-200">
                 <h3 className="text-4xl font-semibold">Country</h3>
-                <p className="my-4"><span className="text-lg font-semibold">{data.Country}</span> </p>
-                <p className="my-4"><span className="text-lg font-semibold">{data.AdminLevel2}</span> </p>
-            </div>
-            <div className="block p-4 bg-gray-200">
+                <p className="my-6"><span className="text-lg font-semibold">{data.Country}</span> </p>
+                <p className="my-6"><span className="text-lg font-semibold">{data.AdminLevel2}</span> </p>
                 <h3 className="text-4xl font-semibold">GPS</h3>
-                <p className="my-4">Latitude : <span className="text-lg font-semibold">{data.Latitude}</span> </p>
-                <p className="my-4">Longitude : <span className="text-lg font-semibold">{data.Longitude}</span> </p>
+                <p className="my-6">Latitude : <span className="text-lg font-semibold">{data.Latitude}</span> </p>
+                <p className="my-6">Longitude : <span className="text-lg font-semibold">{data.Longitude}</span> </p>
             </div>
-            <div className="block">
+            <div className="grow block">
                 <PackageTimeline data = {data} />
             </div>
         </div>
