@@ -65,7 +65,7 @@ export default function Dashboard({data}) {
             <div className="block p-4 bg-gray-200 ">
                 <h3 className="text-4xl font-semibold">Group Name</h3>
                 <p className="my-6"><span className="text-lg font-semibold"> {data.GroupName}</span> </p>
-                <h3 className="text-4xl font-semibold">Product Name</h3>
+                <h3 className="text-4xl font-semibold mt-20">Product Name</h3>
                 <p className="my-6"><span className="text-lg font-semibold">{data.Account}</span> </p>
             </div>  
             <div className=" block p-4 bg-gray-200">
