@@ -79,7 +79,7 @@ function App() {
     <div className="bg-fixed bg-center bg-cover min-h-screen" style={{ backgroundImage: `url(${image})` }}>
       <Navbar />
       <div className="flex justify-center items-start min-h-screen">
-        <div className="container bg-gray-200 opacity-95 rounded-xl shadow border p-8 m-6">
+        <div className="container bg-gray-200 opacity-80 rounded-xl shadow border p-8 m-8">
           <DashBoard data={responseData} /> {/* Pass the response data to Dashboard */}
         </div>
       </div>

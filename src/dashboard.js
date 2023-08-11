@@ -20,13 +20,13 @@ function PackageTimeline({data}) {
                     <div className="flex md:contents">
                         <div className="col-start-2 mt-9 col-end-4 mr-10 md:mx-auto relative">
                             <div className="h-full w-6 flex items-center justify-center">
-                                <div className="h-full w-1 bg-green-500 pointer-events-none"></div>
+                                <div className="h-full w-1 bg-green-600 pointer-events-none"></div>
                             </div>
-                            <div className="w-6 h-6 absolute top-0 -mt-3 rounded-full bg-green-500 shadow text-center">
+                            <div className="w-6 h-6 absolute top-0 -mt-3 rounded-full bg-green-600 shadow text-center">
                                 <i className="fas fa-check-circle text-white"></i>
                             </div>
                         </div>
-                        <div className="bg-green-500 col-start-4 col-end-12 p-3 rounded-xl my-1 mr-auto shadow-md w-full">
+                        <div className="bg-green-600 col-start-4 col-end-12 p-3 rounded-xl my-1 mr-auto shadow-md w-full">
                             <h3 className="font-semibold text-lg mb-1">Date collected</h3>
                             <p className="leading-tight text-justify w-full">
                                 {data.Dateofcollection}
@@ -37,13 +37,13 @@ function PackageTimeline({data}) {
                     <div className="flex md:contents">
                         <div className="col-start-2 mb-8 col-end-4 mr-10 md:mx-auto relative">
                             <div className="h-full w-6 flex botto-0 items-center justify-center">
-                                <div className="h-14 bottom-2 w-1 bg-green-500 pointer-events-none"></div>
+                                <div className="h-14 bottom-2 w-1 bg-green-600 pointer-events-none"></div>
                             </div>
-                            <div className="w-6 h-6 absolute bottom-0 -mt-3 rounded-full bg-green-500 shadow text-center">
+                            <div className="w-6 h-6 absolute bottom-0 -mt-3 rounded-full bg-green-600 shadow text-center">
                                 <i className="fas fa-check-circle text-white"></i>
                             </div>
                         </div>
-                        <div className="bg-green-500 col-start-4 col-end-12 p-3 rounded-xl mt-2 mr-auto shadow-md w-full">
+                        <div className="bg-green-600 col-start-4 col-end-12 p-3 rounded-xl mt-2 mr-auto shadow-md w-full">
                             <h3 className="font-semibold text-lg ">Today</h3>
                             <p className="leading-tight text-justify w-full">
                             {formatDate(currentDate)}
