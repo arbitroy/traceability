@@ -3,6 +3,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import DashBoard from './dashboard';
 import Navbar from './Navbar';
+import defaultImage from './assets/default.jpg';
 
 function App() {
   const [licenceid, setLicenseid] = useState('');
@@ -63,15 +64,26 @@ function App() {
   useEffect(() => {
     if (responseData && responseData.Country) {
       // Dynamically generate the image URL based on the country
-      const countryImage = require(`./assets/${responseData.Country}.jpg`);
-      fetch(countryImage)
-        .then((response) => response.blob())
-        .then((blob) => {
-          setImage(URL.createObjectURL(blob));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      try {
+        const countryImage = require(`./assets/${responseData.Country}.jpg`);
+        fetch(countryImage)
+          .then((response) => response.blob())
+          .then((blob) => {
+            setImage(URL.createObjectURL(blob));
+          })
+          .catch((error) => {
+            console.log(error);
+            // Fall back to default image
+            setImage(defaultImage);
+          });
+      } catch (error) {
+        console.log(error);
+        // Fall back to default image
+        setImage(defaultImage);
+      }
+    } else {
+      // Fall back to default image if no country data available
+      setImage(defaultImage);
     }
   }, [responseData]);
 
