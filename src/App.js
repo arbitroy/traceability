@@ -53,7 +53,7 @@ function App() {
         .then((sdata) => {
           // Handle the response from the server and store it in the state
           setResponseData(sdata);
-
+          console.log(sdata);
         })
         .catch((error) => {
           // Handle any errors that occur during the POST request
